@@ -19,9 +19,11 @@ const WeaponDetailComponent = (props: any) => {
     }
 
     return (
-        <div className='WeaponDetail'>
-            {detail}
-        </div>
+        <tr>
+            <td>
+                {detail}
+            </td>
+        </tr>
     );
 }
 

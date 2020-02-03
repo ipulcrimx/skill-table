@@ -12,3 +12,15 @@
 .App-link {
   color: #61dafb;
 }
+
+.table-skill {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.th-skill {
+  text-align: center;
+  border: 1px solid azure;
+  height: 50px;
+}
+  

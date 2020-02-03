@@ -1,5 +1,6 @@
 import React from 'react';
 import Weapon from './Data/Weapon'
+import WeaponDetailComponent from './Components/WeaponDetailComponent'
 
 
 import './App.css';
@@ -10,7 +11,7 @@ class App extends React.Component {
     var fodders = [];
     var wep = new Weapon(1, level);
 
-    if (pointNeeded == wep.getValue()) {
+    if (pointNeeded === wep.getValue()) {
       fodders.push(wep);
       if (level > 1) {
         do {
@@ -40,17 +41,22 @@ class App extends React.Component {
 
   flattenArray = (array: any[]) => {
     let newArray: any = [];
-    array.forEach(item => {
-      if (Array.isArray(item)) {
+    array.forEach(item => 
+      {
+      if (Array.isArray(item)) 
+      {
         let noArray = true
-        item.forEach(subItem => {
+        item.forEach(subItem => 
+          {
           noArray = noArray && !Array.isArray(subItem)
         })
 
-        if (noArray) {
+        if (noArray) 
+        {
           newArray.push(item)
         }
-        else {
+        else 
+        {
           // if there's still some array in there...
           // let mainValue = item[item.length - 1];
           // item.length -= 1;
@@ -65,15 +71,15 @@ class App extends React.Component {
               break
             } else {
               item.length -= 1
-              if (mainValue == null || mainValue === undefined)
+              if (mainValue === null || mainValue === undefined)
                 mainValue = [lastElement]
               else mainValue.push(lastElement)
             }
           }
 
           let miniArray = this.flattenArray(item)
-          for (var i = 0; i < miniArray.length; i++) {
-            newArray.push([...mainValue, ...miniArray[i]])
+          for (var j = 0; j < miniArray.length; j++) {
+            newArray.push([...mainValue, ...miniArray[j]])
           }
 
           newArray = [...newArray]
@@ -93,15 +99,12 @@ class App extends React.Component {
     let flattenedArray: any[] = this.flattenArray(array);
     var details = flattenedArray.map((arrElement, index) => {
       return (
-        <div>
-          <p><b>SSR FODDERS </b></p>
-        </div>
-        // <WeaponDetailComponent
-        //     weapons={arrElement}
-        //     key={index}
-        // />
+        <WeaponDetailComponent
+            weapons={arrElement}
+            key={index}
+        />
       );
-    });
+    }); 
 
     return (
       <div>

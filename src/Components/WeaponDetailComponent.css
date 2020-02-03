@@ -1,0 +1,14 @@
+.WeaponDetail {
+    margin: auto;
+    width: 60 100px 50px 50px;
+    padding: 5px;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 2px 3px #aabbcc;
+    vertical-align: middle;
+}
+
+.WeaponIcon {
+    width: 20px;
+    height: 20px;
+    vertical-align: text-top;
+}

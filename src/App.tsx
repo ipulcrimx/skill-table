@@ -94,8 +94,7 @@ class App extends React.Component {
     return newArray
   }
   render() {
-
-    let array = this.countFodders(6, 240);
+    let array = this.countFodders(14, 560);
     let flattenedArray: any[] = this.flattenArray(array);
     var details = flattenedArray.map((arrElement, index) => {
       return (
@@ -107,9 +106,24 @@ class App extends React.Component {
     }); 
 
     return (
-      <div>
-        {details}
-      </div>
+      <table className="table-skill">
+        <thead className="th-skill">
+          <tr>
+            <td>
+              Variant
+            </td>
+            <td>
+              Total Fodders
+            </td>
+            <td>
+              Total Point
+            </td>
+          </tr>
+        </thead>
+        <tbody className="th-skill">
+          {details}
+        </tbody>
+      </table>
     );
   }
 

@@ -22,7 +22,7 @@ const neededFodder = [
   
   export class Weapon {
     slvl: number = 1;
-    rarity: number = 0;
+    rarity: number = 0; 
   
     constructor(rarity: number, slvl: number) {
       this.slvl = slvl;
@@ -42,8 +42,27 @@ const neededFodder = [
   
     getValue = () => {
       var value = this.rarity === 0 ? 4 : 40;
+
       return value * this.slvl;
     };
+
+    // TODO: edit this method to support SR fodder too...
+    // currently only for SSR fodder
+    getSRFodder = () => {
+        let totalSR: number = 0;
+        for(var i = this.slvl; i > 1; i--) {
+            // console.log(neededFodder[i-1]);
+            totalSR += neededFodder[i-1]['SSR'] / 4;
+        }
+
+        return totalSR;
+    }
+
+    // TODO: this one too
+    getFodderValue = () => {
+      const sr = this.getSRFodder();
+      return 40 + sr * 4;
+    }
   
     toString = () => {
       let strTemp = "";

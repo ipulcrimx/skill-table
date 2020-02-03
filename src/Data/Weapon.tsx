@@ -46,6 +46,8 @@ const neededFodder = [
       return value * this.slvl;
     };
 
+    // TODO: edit this method to support SR fodder too...
+    // currently only for SSR fodder
     getSRFodder = () => {
         let totalSR: number = 0;
         for(var i = this.slvl; i > 1; i--) {
@@ -54,6 +56,12 @@ const neededFodder = [
         }
 
         return totalSR;
+    }
+
+    // TODO: this one too
+    getFodderValue = () => {
+      const sr = this.getSRFodder();
+      return 40 + sr * 4;
     }
   
     toString = () => {

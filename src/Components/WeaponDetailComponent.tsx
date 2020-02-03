@@ -4,11 +4,13 @@ import ssrIcon from '../assets/icon/Rarity_SSR.png';
 import DetailCollumn from './CollumnTable/DetailCollumn';
 
 import './WeaponDetailComponent.css';
+import TotalFodderComponent from './CollumnTable/TotalFodderPointComponent';
 
 const WeaponDetailComponent = (props: any) => {
     let weapons: any[] = [...props.weapons];
     let weapon: any;
     let detail: any;
+    let totalValue: number = 0;
 
     if (props.weapons != null) {
         weapon = weapons.map((weap: any, index: number) => {
@@ -29,6 +31,10 @@ const WeaponDetailComponent = (props: any) => {
                     key={index+ '--'} />
             );
         });
+        
+        weapons.forEach(weap => {
+            totalValue += weap.getFodderValue();
+        });
     }
 
     return (
@@ -40,7 +46,9 @@ const WeaponDetailComponent = (props: any) => {
                 {detail}
             </td>
             <td className="td-skill">
-                0
+                <TotalFodderComponent
+                    value={totalValue}
+                    isLowest={false} />
             </td>
         </tr>
     );

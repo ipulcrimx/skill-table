@@ -12,7 +12,7 @@ class App extends React.Component {
     var wep = new Weapon(1, level);
 
     if (pointNeeded === wep.getValue()) {
-      fodders.push(wep);
+      fodders.push(wep.toString());
       if (level > 1) {
         do {
           level = level - 1;
@@ -21,13 +21,13 @@ class App extends React.Component {
         while (level > 1);
       }
       else {
-        return [wep];
+        return [wep.toString()];
       }
     }
     else if (wep.getValue() < pointNeeded) {
       fodders = this.countFodders(level, pointNeeded - wep.getValue());
       if (fodders) {
-        fodders.push(wep)
+        fodders.push(wep.toString())
       }
 
       return fodders;
@@ -94,7 +94,9 @@ class App extends React.Component {
     return newArray
   }
   render() {
-    let array = this.countFodders(14, 560);
+    let array = this.countFodders(10, 360);
+
+    console.log(JSON.stringify(array));
     let flattenedArray: any[] = this.flattenArray(array);
     var details = flattenedArray.map((arrElement, index) => {
       return (
@@ -106,24 +108,26 @@ class App extends React.Component {
     }); 
 
     return (
-      <table className="table-skill">
-        <thead className="th-skill">
-          <tr>
-            <td>
-              Variant
+      <div className="App">
+        <table className="table-skill">
+          <thead className="th-skill">
+            <tr>
+              <td>
+                Variant
             </td>
-            <td>
-              Total Fodders
+              <td>
+                Total Fodders
             </td>
-            <td>
-              Total Point
+              <td>
+                Total Point
             </td>
-          </tr>
-        </thead>
-        <tbody className="th-skill">
-          {details}
-        </tbody>
-      </table>
+            </tr>
+          </thead>
+          {/* <tbody className="th-skill">
+            {details}
+          </tbody> */}
+        </table>
+      </div>
     );
   }
 

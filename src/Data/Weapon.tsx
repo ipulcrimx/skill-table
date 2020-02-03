@@ -78,7 +78,7 @@ const neededFodder = [
           break;
       }
   
-      return strTemp + "lvl " + this.slvl;
+      return strTemp + " lvl " + this.slvl;
     }
   }
   

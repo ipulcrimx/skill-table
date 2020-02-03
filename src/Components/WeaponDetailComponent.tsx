@@ -1,8 +1,9 @@
 import * as React from 'react';
 
 import ssrIcon from '../assets/icon/Rarity_SSR.png';
-import './WeaponDetailComponent.css';
 import DetailCollumn from './CollumnTable/DetailCollumn';
+
+import './WeaponDetailComponent.css';
 
 const WeaponDetailComponent = (props: any) => {
     let weapons: any[] = [...props.weapons];
